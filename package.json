@@ -6,6 +6,7 @@
     "react",
     "starter"
   ],
+  "homepage" : "https://yuriguernsey.com/"
   "main": "src/index.js",
   "dependencies": {
     "@react-three/drei": "8.11.0",
