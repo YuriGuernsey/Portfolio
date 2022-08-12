@@ -1,11 +1,15 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from './screens/Home';
 import Model from './Model';
 
 export default function App() {
-   return (
-      <Canvas
+   return [
+      
+      <Canvas className={'bg'}
          camera={{ position: [2, 0, 12.25], fov: 15 }}
          style={{
             backgroundColor: '#111a21',
@@ -17,9 +21,16 @@ export default function App() {
          <ambientLight intensity={0.1} />
          <directionalLight intensity={0.4} />
          <Suspense fallback={null}>
-            <Model position={[0.025, -0.9, 0]} />
+            <Model position={[1, -0.9,0]} />
          </Suspense>
-         <OrbitControls />
-      </Canvas>
-   );
+        
+      </Canvas>,
+       <BrowserRouter>
+
+      <Routes>
+        <Route path='/' exact element={<Home/>} />
+
+      </Routes>
+    </BrowserRouter>
+   ];
 }
